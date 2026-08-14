@@ -328,6 +328,8 @@ section {
 .brand-logo {
   width: 35px;
   height: 35px;
+  position: relative;
+  top: -5px;
 
   transition: transform 0.5s var(--ease-spring);
 }
@@ -1442,7 +1444,6 @@ footer {
     gap: 10px;
   }
   .brand-word {
-    line-height: 4;
     font-size: 0.95rem;
 
     font-family: "rikos", sans-serif;
