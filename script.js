@@ -127,11 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
     root.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
     if (langToggle) langToggle.textContent = lang === "ar" ? "EN" : "AR";
     currentLang = lang;
-    // keep the currently-shown video's caption synced with the toggle
-    if (videoTitleEl && typeof videoData !== "undefined" && videoData[vIndex]) {
-      videoTitleEl.textContent =
-        lang === "ar" ? videoData[vIndex].ar : videoData[vIndex].en;
-    }
   }
   on(langToggle, "click", function () {
     applyLang(currentLang === "ar" ? "en" : "ar");
@@ -280,33 +275,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* ---------- Tilt effect on case cards (mouse only, skipped on touch) ---------- */
-  var hasFineHover =
-    window.matchMedia &&
-    window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-  if (hasFineHover) {
-    document.querySelectorAll(".tilt").forEach(function (card) {
-      card.addEventListener("mousemove", function (e) {
-        var r = card.getBoundingClientRect();
-        var px = (e.clientX - r.left) / r.width;
-        var py = (e.clientY - r.top) / r.height;
-        var rx = (py - 0.5) * -8;
-        var ry = (px - 0.5) * 8;
-        card.style.transform =
-          "perspective(700px) rotateX(" +
-          rx +
-          "deg) rotateY(" +
-          ry +
-          "deg) translateY(-4px)";
-        card.style.setProperty("--px", px * 100 + "%");
-        card.style.setProperty("--py", py * 100 + "%");
-      });
-      card.addEventListener("mouseleave", function () {
-        card.style.transform =
-          "perspective(700px) rotateX(0) rotateY(0) translateY(0)";
-      });
-    });
-  }
   /* ---------- Video showcase carousel ---------- */
   var videoData = [
     {
@@ -350,8 +318,6 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   var videoEl = document.getElementById("showcaseVideo");
-  var videoTitleEl = document.getElementById("videoTitle");
-  var videoCaseNoEl = document.getElementById("videoCaseNo");
   var dotsWrap = document.getElementById("videoDots");
   var videoInstaEl = document.getElementById("videoInstaBtn");
   var vIndex = 0;
@@ -382,9 +348,6 @@ document.addEventListener("DOMContentLoaded", function () {
         item.youtubeId +
         "?rel=0&modestbranding=1&playsinline=1";
     }
-
-    // تحديث رقم الحالة فقط (تمت إزالة العناوين النصية بناءً على رغبتكِ)
-    if (videoCaseNoEl) videoCaseNoEl.textContent = item.caseNo;
 
     // تحديث الزر
     if (videoInstaEl) {
