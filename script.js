@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var prefix = el.getAttribute("data-prefix") || "";
     var suffix = el.getAttribute("data-suffix") || "";
     var isDecimal = String(target).indexOf(".") !== -1;
-    var duration = 1500;
+    var duration = 900;
     var startTime = null;
     function easeOutExpo(x) {
       return x === 1 ? 1 : 1 - Math.pow(2, -10 * x);
@@ -242,16 +242,34 @@ document.addEventListener("DOMContentLoaded", function () {
     el.textContent = prefix + (isDecimal ? (0).toFixed(1) : 0) + suffix;
     el._counterFrame = requestAnimationFrame(step);
   }
+  // if ("IntersectionObserver" in window && counters.length) {
+  //   var cio = new IntersectionObserver(
+  //     function (entries) {
+  //       entries.forEach(function (entry) {
+  //         if (entry.isIntersecting) {
+  //           animateCounter(entry.target);
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.5 },
+  //   );
   if ("IntersectionObserver" in window && counters.length) {
     var cio = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            animateCounter(entry.target);
+            var card = entry.target.closest("[data-reveal-delay]");
+            var delay = card
+              ? parseInt(card.getAttribute("data-reveal-delay"), 10)
+              : 0;
+            clearTimeout(entry.target._counterTimer);
+            entry.target._counterTimer = setTimeout(function () {
+              animateCounter(entry.target);
+            }, delay);
           }
         });
       },
-      { threshold: 0.5 },
+      { threshold: 0.01, rootMargin: "0px 0px 15% 0px" },
     );
     counters.forEach(function (el) {
       cio.observe(el);
@@ -293,7 +311,8 @@ document.addEventListener("DOMContentLoaded", function () {
   var videoData = [
     {
       youtubeId: "RPNn7k0-WdY",
-      instagram: "",
+      instagram:
+        "https://www.instagram.com/reel/DbJA-AQsMgl/?igsh=MXU1b2Vkc3hwdTMxaw==",
       caseNo: "CASE / 01",
       ar: "دكتورة جلدية ",
       en: "Dermatologist ",
@@ -308,7 +327,8 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       youtubeId: "ueyp1GrGbKA",
-      instagram: "",
+      instagram:
+        "https://www.instagram.com/reel/Da-wxsZtRhC/?igsh=OTFvejZ3Mzd2cHox",
       caseNo: "CASE / 03",
       ar: "ليزر",
       en: "Laser Treatment",
@@ -323,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       youtubeId: "SlSiygvH758",
-      instagram: "",
+      instagram: "https://www.instagram.com/noorhan_na_?igsh=ejZ5ZW11dTJvaWdx",
       caseNo: "CASE / 05",
       ar: "صيدلانية — تحجي عن البشرة",
       en: "Pharmacist — on skincare",
@@ -346,7 +366,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       youtubeId: "-9Z5BY1xNX8",
-      instagram: "",
+      instagram: "https://www.instagram.com/dr.wasanfawzi",
       caseNo: "CASE / 08",
       ar: "دكتورة — تحجي عن تحديد جنس الجنين",
       en: "Doctor — on determining the baby's gender",
