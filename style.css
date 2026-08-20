@@ -1047,10 +1047,10 @@ section {
 }
 
 /* flip the chevrons in Arabic so "prev/next" point the natural RTL way */
-[dir="rtl"] .video-arrow-prev svg,
+/* [dir="rtl"] .video-arrow-prev svg,
 [dir="rtl"] .video-arrow-next svg {
   transform: scaleX(-1);
-}
+} */
 
 .video-caption {
   margin-top: 24px;
@@ -1107,6 +1107,7 @@ section {
   justify-content: center;
   gap: 8px;
   margin-top: 18px;
+  direction: ltr;
 }
 .video-dot {
   width: 8px;

@@ -313,63 +313,39 @@ document.addEventListener("DOMContentLoaded", function () {
       youtubeId: "RPNn7k0-WdY",
       instagram:
         "https://www.instagram.com/reel/DbJA-AQsMgl/?igsh=MXU1b2Vkc3hwdTMxaw==",
-      caseNo: "CASE / 01",
-      ar: "دكتورة جلدية ",
-      en: "Dermatologist ",
     },
     {
       youtubeId: "E6G8huH4ToQ",
       instagram:
         "https://www.instagram.com/reel/Da27ctTNDjI/?igsh=bzEzb2R1cmlhbmIw",
-      caseNo: "CASE / 02",
-      ar: "دكتور أسنان — يحجي عن تقدم الفك",
-      en: "Dentist — on jaw advancement treatment",
     },
     {
       youtubeId: "ueyp1GrGbKA",
       instagram:
         "https://www.instagram.com/reel/Da-wxsZtRhC/?igsh=OTFvejZ3Mzd2cHox",
-      caseNo: "CASE / 03",
-      ar: "ليزر",
-      en: "Laser Treatment",
     },
     {
       youtubeId: "7xGo0Z8vj-s",
       instagram:
         "https://www.instagram.com/reel/DYIA09qsQxN/?igsh=bzk4YzJ2M2ZhMjdp",
-      caseNo: "CASE / 04",
-      ar: "عيون",
-      en: "Ophthalmology",
     },
     {
       youtubeId: "SlSiygvH758",
       instagram: "https://www.instagram.com/noorhan_na_?igsh=ejZ5ZW11dTJvaWdx",
-      caseNo: "CASE / 05",
-      ar: "صيدلانية — تحجي عن البشرة",
-      en: "Pharmacist — on skincare",
     },
     {
       youtubeId: "qVVzyTfwr_g",
       instagram:
         "https://www.instagram.com/reel/DbTdcetsjmq/?igsh=MW5reWY3bXU4b21uNw==",
-      caseNo: "CASE / 06",
-      ar: "دكتورة — تحجي عن غرفة العمليات",
-      en: "Doctor — inside the operating room",
     },
     {
       youtubeId: "KUKzG2mAQ7o",
       instagram:
         "https://www.instagram.com/reel/DUQ5EAMjBiU/?igsh=MTVmNGV6Mml1MXFuNA==",
-      caseNo: "CASE / 07",
-      ar: "دكتور أسنان — يحجي عن التبييض",
-      en: "Dentist — on teeth whitening",
     },
     {
       youtubeId: "-9Z5BY1xNX8",
       instagram: "https://www.instagram.com/reel/DSX0NTrjrfL/",
-      caseNo: "CASE / 08",
-      ar: "دكتورة — تحجي عن تحديد جنس الجنين",
-      en: "Doctor — on determining the baby's gender",
     },
   ];
 
@@ -407,12 +383,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "?rel=0&modestbranding=1&playsinline=1";
     }
 
-    // --- هذه هي الأسطر التي كانت مفقودة وتسبب عدم تغير النص ---
-    var lang = document.documentElement.getAttribute("lang") || "ar";
-    if (videoTitleEl)
-      videoTitleEl.textContent = lang === "ar" ? item.ar : item.en;
+    // تحديث رقم الحالة فقط (تمت إزالة العناوين النصية بناءً على رغبتكِ)
     if (videoCaseNoEl) videoCaseNoEl.textContent = item.caseNo;
-    // --------------------------------------------------------
 
     // تحديث الزر
     if (videoInstaEl) {
