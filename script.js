@@ -366,7 +366,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       youtubeId: "-9Z5BY1xNX8",
-      instagram: "https://www.instagram.com/dr.wasanfawzi",
+      instagram: "https://www.instagram.com/reel/DSX0NTrjrfL/",
       caseNo: "CASE / 08",
       ar: "دكتورة — تحجي عن تحديد جنس الجنين",
       en: "Doctor — on determining the baby's gender",
@@ -396,24 +396,31 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function goToVideo(i) {
-    vIndex = (i + videoData.length) % videoData.length; // loops around both ends
+    vIndex = (i + videoData.length) % videoData.length;
     var item = videoData[vIndex];
+
+    // تحديث الفيديو
     if (videoEl) {
       videoEl.src =
         "https://www.youtube.com/embed/" +
         item.youtubeId +
         "?rel=0&modestbranding=1&playsinline=1";
     }
+
+    // --- هذه هي الأسطر التي كانت مفقودة وتسبب عدم تغير النص ---
     var lang = document.documentElement.getAttribute("lang") || "ar";
     if (videoTitleEl)
       videoTitleEl.textContent = lang === "ar" ? item.ar : item.en;
     if (videoCaseNoEl) videoCaseNoEl.textContent = item.caseNo;
+    // --------------------------------------------------------
+
+    // تحديث الزر
     if (videoInstaEl) {
+      videoInstaEl.classList.remove("show");
+      void videoInstaEl.offsetWidth;
       if (item.instagram) {
         videoInstaEl.href = item.instagram;
-        videoInstaEl.style.display = "";
-      } else {
-        videoInstaEl.style.display = "none"; // hides the button until you add a real link
+        videoInstaEl.classList.add("show");
       }
     }
     buildDots();

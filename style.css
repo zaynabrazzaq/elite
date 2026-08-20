@@ -1071,11 +1071,15 @@ section {
   color: var(--hi);
   font-weight: 600;
   font-size: 0.82rem;
+  opacity: 1;
+  transform: translateY(8px) scale(0.92);
   transition:
     border-color 0.3s,
     background 0.3s,
-    transform 0.3s var(--ease-spring);
+    opacity 0.35s var(--ease-spring),
+    transform 0.35s var(--ease-spring);
 }
+
 .video-insta-btn svg {
   width: 16px;
   height: 16px;
