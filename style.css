@@ -572,11 +572,18 @@ section {
 
 /* ============ REVEAL UTILITIES (scroll-triggered, JS toggled, replayable) ============ */
 .reveal {
-  opacity: 0;
+  /* opacity: 0;
   transform: translateY(34px) scale(0.97);
   transition:
     opacity 0.75s var(--ease),
-    transform 0.75s var(--ease);
+    transform 0.75s var(--ease); */
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  /* تعديل الـ transition ليكون أطول قليلاً مع easing ناعم جداً */
+  transition:
+    opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
 .reveal.in {
   opacity: 1;
@@ -967,6 +974,163 @@ section {
 .case-card:hover .case-icon {
   transform: rotate(-14deg) scale(1.1);
   background: rgba(176, 38, 255, 0.1);
+}
+
+/* ============ VIDEO SHOWCASE ============ */
+.video-showcase {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  max-width: 380px; /* Shorts are vertical — keeps the frame from going too wide on desktop */
+  aspect-ratio: 9 / 16; /* Shorts native ratio — this is what kills the black bars */
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #000;
+  box-shadow: 0 20px 60px -20px rgba(123, 47, 247, 0.45);
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .video-frame {
+    max-width: 100%;
+  }
+}
+
+.video-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--bg-2) 65%, transparent);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  color: var(--hi);
+  z-index: 2;
+  transition:
+    background 0.3s,
+    border-color 0.3s,
+    transform 0.3s var(--ease-spring);
+}
+.video-arrow:hover {
+  background: rgba(176, 38, 255, 0.28);
+  border-color: var(--purple-2);
+  transform: translateY(-50%) scale(1.08);
+}
+.video-arrow:active {
+  transform: translateY(-50%) scale(0.94);
+}
+.video-arrow-prev {
+  left: 16px;
+}
+.video-arrow-next {
+  right: 16px;
+}
+
+/* flip the chevrons in Arabic so "prev/next" point the natural RTL way */
+[dir="rtl"] .video-arrow-prev svg,
+[dir="rtl"] .video-arrow-next svg {
+  transform: scaleX(-1);
+}
+
+.video-caption {
+  margin-top: 24px;
+  text-align: center;
+}
+.video-caption h3 {
+  margin-top: 8px;
+  font-size: 1.25rem;
+}
+.video-insta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--hi);
+  font-weight: 600;
+  font-size: 0.82rem;
+  transition:
+    border-color 0.3s,
+    background 0.3s,
+    transform 0.3s var(--ease-spring);
+}
+.video-insta-btn svg {
+  width: 16px;
+  height: 16px;
+  color: var(--purple-2);
+}
+.video-insta-btn:hover {
+  border-color: var(--purple-2);
+  background: rgba(176, 38, 255, 0.08);
+  transform: translateY(-2px);
+}
+.video-insta-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+@media (max-width: 480px) {
+  .video-insta-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px; /* slightly taller on mobile for an easier tap target */
+  }
+}
+
+.video-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+.video-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    transform 0.3s;
+}
+.video-dot.active {
+  background: var(--purple-2);
+  transform: scale(1.3);
+}
+
+@media (max-width: 768px) {
+  .video-arrow {
+    width: 38px;
+    height: 38px;
+  }
+  .video-arrow-prev {
+    left: 8px;
+  }
+  .video-arrow-next {
+    right: 8px;
+  }
 }
 
 /* ============ STORIES ============ */

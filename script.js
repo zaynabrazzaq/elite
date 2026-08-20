@@ -127,6 +127,11 @@ document.addEventListener("DOMContentLoaded", function () {
     root.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
     if (langToggle) langToggle.textContent = lang === "ar" ? "EN" : "AR";
     currentLang = lang;
+    // keep the currently-shown video's caption synced with the toggle
+    if (videoTitleEl && typeof videoData !== "undefined" && videoData[vIndex]) {
+      videoTitleEl.textContent =
+        lang === "ar" ? videoData[vIndex].ar : videoData[vIndex].en;
+    }
   }
   on(langToggle, "click", function () {
     applyLang(currentLang === "ar" ? "en" : "ar");
@@ -284,4 +289,122 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+  /* ---------- Video showcase carousel ---------- */
+  var videoData = [
+    {
+      youtubeId: "RPNn7k0-WdY",
+      instagram: "",
+      caseNo: "CASE / 01",
+      ar: "دكتورة جلدية ",
+      en: "Dermatologist ",
+    },
+    {
+      youtubeId: "E6G8huH4ToQ",
+      instagram:
+        "https://www.instagram.com/reel/Da27ctTNDjI/?igsh=bzEzb2R1cmlhbmIw",
+      caseNo: "CASE / 02",
+      ar: "دكتور أسنان — يحجي عن تقدم الفك",
+      en: "Dentist — on jaw advancement treatment",
+    },
+    {
+      youtubeId: "ueyp1GrGbKA",
+      instagram: "",
+      caseNo: "CASE / 03",
+      ar: "ليزر",
+      en: "Laser Treatment",
+    },
+    {
+      youtubeId: "7xGo0Z8vj-s",
+      instagram:
+        "https://www.instagram.com/reel/DYIA09qsQxN/?igsh=bzk4YzJ2M2ZhMjdp",
+      caseNo: "CASE / 04",
+      ar: "عيون",
+      en: "Ophthalmology",
+    },
+    {
+      youtubeId: "SlSiygvH758",
+      instagram: "",
+      caseNo: "CASE / 05",
+      ar: "صيدلانية — تحجي عن البشرة",
+      en: "Pharmacist — on skincare",
+    },
+    {
+      youtubeId: "qVVzyTfwr_g",
+      instagram:
+        "https://www.instagram.com/reel/DbTdcetsjmq/?igsh=MW5reWY3bXU4b21uNw==",
+      caseNo: "CASE / 06",
+      ar: "دكتورة — تحجي عن غرفة العمليات",
+      en: "Doctor — inside the operating room",
+    },
+    {
+      youtubeId: "KUKzG2mAQ7o",
+      instagram:
+        "https://www.instagram.com/reel/DUQ5EAMjBiU/?igsh=MTVmNGV6Mml1MXFuNA==",
+      caseNo: "CASE / 07",
+      ar: "دكتور أسنان — يحجي عن التبييض",
+      en: "Dentist — on teeth whitening",
+    },
+    {
+      youtubeId: "-9Z5BY1xNX8",
+      instagram: "",
+      caseNo: "CASE / 08",
+      ar: "دكتورة — تحجي عن تحديد جنس الجنين",
+      en: "Doctor — on determining the baby's gender",
+    },
+  ];
+
+  var videoEl = document.getElementById("showcaseVideo");
+  var videoTitleEl = document.getElementById("videoTitle");
+  var videoCaseNoEl = document.getElementById("videoCaseNo");
+  var dotsWrap = document.getElementById("videoDots");
+  var videoInstaEl = document.getElementById("videoInstaBtn");
+  var vIndex = 0;
+
+  function buildDots() {
+    if (!dotsWrap) return;
+    dotsWrap.innerHTML = "";
+    videoData.forEach(function (item, i) {
+      var dot = document.createElement("button");
+      dot.className = "video-dot" + (i === vIndex ? " active" : "");
+      dot.type = "button";
+      dot.setAttribute("aria-label", "Video " + (i + 1));
+      dot.addEventListener("click", function () {
+        goToVideo(i);
+      });
+      dotsWrap.appendChild(dot);
+    });
+  }
+
+  function goToVideo(i) {
+    vIndex = (i + videoData.length) % videoData.length; // loops around both ends
+    var item = videoData[vIndex];
+    if (videoEl) {
+      videoEl.src =
+        "https://www.youtube.com/embed/" +
+        item.youtubeId +
+        "?rel=0&modestbranding=1&playsinline=1";
+    }
+    var lang = document.documentElement.getAttribute("lang") || "ar";
+    if (videoTitleEl)
+      videoTitleEl.textContent = lang === "ar" ? item.ar : item.en;
+    if (videoCaseNoEl) videoCaseNoEl.textContent = item.caseNo;
+    if (videoInstaEl) {
+      if (item.instagram) {
+        videoInstaEl.href = item.instagram;
+        videoInstaEl.style.display = "";
+      } else {
+        videoInstaEl.style.display = "none"; // hides the button until you add a real link
+      }
+    }
+    buildDots();
+  }
+
+  on(document.getElementById("videoPrev"), "click", function () {
+    goToVideo(vIndex - 1);
+  });
+  on(document.getElementById("videoNext"), "click", function () {
+    goToVideo(vIndex + 1);
+  });
+
+  if (videoEl) goToVideo(0);
 });
