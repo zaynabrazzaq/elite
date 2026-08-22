@@ -37,11 +37,7 @@
   --ease: cubic-bezier(0.16, 0.8, 0.24, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* استبدال خط العناوين ليكون خط العلامة التجارية الجديد كأول خيار */
-  --font-display: "Tajawal", "IBM Plex Sans Arabic", sans-serif;
-
-  /* استبدال خط المحتوى الأساسي ليكون Tajawal كأول خيار مع بدائل */
-  --font-body: "Tajawal", "IBM Plex Sans Arabic", sans-serif;
+  --font-all: "Tajawal", sans-serif;
 
   --font-mono: "IBM Plex Mono", monospace;
 }
@@ -66,7 +62,7 @@ html {
 body {
   background: var(--bg);
   color: var(--hi);
-  font-family: var(--font-body);
+  font-family: var(--font-all);
   overflow-x: hidden;
   transition:
     background 0.5s var(--ease),
@@ -83,7 +79,7 @@ h2,
 h3,
 h4,
 .display {
-  font-family: var(--font-display);
+  font-family: var(--font-all);
   font-weight: 700;
   letter-spacing: -0.01em;
 }
@@ -119,6 +115,8 @@ button {
 }
 section {
   position: relative;
+
+  scroll-margin-top: 56px;
 }
 
 .eyebrow {
@@ -501,7 +499,7 @@ section {
   pointer-events: auto;
 }
 .mobile-panel a {
-  font-family: var(--font-display);
+  font-family: var(--font-all);
   font-weight: 700;
   font-size: 1.6rem;
   opacity: 0;
@@ -783,7 +781,7 @@ section {
   transform: rotate(45deg) scale(1.1);
 }
 .stat-num {
-  font-family: var(--font-display);
+  font-family: var(--font-all);
   font-weight: 700;
   font-size: clamp(2.1rem, 3.4vw, 2.8rem);
   font-variant-numeric: tabular-nums;
@@ -991,7 +989,7 @@ section {
   position: relative;
 }
 .story-quote-wrap .quote-mark {
-  font-family: var(--font-display);
+  font-family: var(--font-all);
   font-size: 5rem;
   font-weight: 700;
   color: var(--purple-2);
@@ -999,7 +997,7 @@ section {
   line-height: 1;
 }
 .story-quote {
-  font-family: var(--font-display);
+  font-family: var(--font-all);
   font-size: 1.35rem;
   font-weight: 600;
   line-height: 1.55;
@@ -1019,7 +1017,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
+  font-family: var(--font-all);
   font-weight: 700;
   color: #fff;
   font-size: 0.85rem;
@@ -1042,7 +1040,7 @@ section {
   background: var(--bg-2);
 }
 .story-stat-panel .big-num {
-  font-family: var(--font-display);
+  font-family: var(--font-all);
   font-weight: 700;
   font-size: 3rem;
   font-variant-numeric: tabular-nums;
@@ -1223,7 +1221,7 @@ section {
   margin-bottom: 10px;
 }
 .contact-item .c-value {
-  font-family: var(--font-display);
+  font-family: var(--font-all);
   font-weight: 700;
   font-size: 1.05rem;
 }

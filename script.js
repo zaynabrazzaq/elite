@@ -28,15 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // safety net in case 'load' is delayed by slow external fonts/CDNs — much shorter than before
   setTimeout(finishLoad, 1000);
 
-  /* ---------- AOS (guarded so a CDN hiccup never breaks the rest of the page) ---------- */
-  try {
-    if (typeof AOS !== "undefined") {
-      AOS.init({ duration: 700, once: true, easing: "ease-out-cubic" });
-    }
-  } catch (e) {
-    /* fail silently, page still works without AOS */
-  }
-
   /* ---------- NAV scroll state + scroll progress + back-to-top ---------- */
   var nav = document.getElementById("nav");
   var progress = document.getElementById("scrollProgress");
@@ -115,14 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
       el.textContent =
         lang === "ar" ? el.getAttribute("data-ar") : el.getAttribute("data-en");
     });
-    document
-      .querySelectorAll("[data-static-ar][data-static-en]")
-      .forEach(function (el) {
-        el.textContent =
-          lang === "ar"
-            ? el.getAttribute("data-static-ar")
-            : el.getAttribute("data-static-en");
-      });
+
     root.setAttribute("lang", lang);
     root.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
     if (langToggle) langToggle.textContent = lang === "ar" ? "EN" : "AR";
