@@ -118,6 +118,12 @@ section {
 
   scroll-margin-top: 56px;
 }
+@media screen and (max-width: 768px) {
+  /* Put your CSS rules for mobile screens in here! */
+  section {
+    scroll-margin-top: 66px;
+  }
+}
 
 .eyebrow {
   display: inline-flex;
@@ -560,8 +566,8 @@ section {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 120px;
-  padding-bottom: 80px;
+  padding-top: 80px;
+  padding-bottom: 20px;
   background:
     radial-gradient(
       650px 500px at 82% 18%,
@@ -740,7 +746,7 @@ section {
 
 /* ============ RESULTS ============ */
 .results {
-  padding: 130px 0;
+  padding: 70px 0;
   background: var(--bg-2);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -795,7 +801,7 @@ section {
 
 /* ============ WORK GRID ============ */
 .work {
-  padding: 150px 0;
+  padding: 70px 0 60px;
 
   border-bottom: 1px solid var(--line);
 }
@@ -961,7 +967,7 @@ section {
 
 /* ============ STORIES ============ */
 .stories {
-  padding: 150px 0;
+  padding: 70px 0 60px;
 }
 .story-card {
   display: grid;
@@ -1068,7 +1074,7 @@ section {
 
 /* ============ ABOUT ============ */
 .about {
-  padding: 150px 0;
+  padding: 70px 0;
   background: var(--bg-2);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -1156,7 +1162,7 @@ section {
 
 /* ============ CONTACT ============ */
 .contact {
-  padding: 150px 0 100px;
+  padding: 70px 0 60px;
   position: relative;
   overflow: hidden;
 }
@@ -1462,17 +1468,17 @@ footer {
     min-height: auto;
   }
   .results {
-    padding: 70px 0;
+    padding: 60px 0;
   }
   .work {
-    padding: 70px 0;
+    padding: 60px 0;
   }
 
   .stories {
-    padding: 70px 0;
+    padding: 60px 0;
   }
   .about {
-    padding: 70px 0;
+    padding: 60px 0;
   }
   .contact {
     padding: 80px 0 60px;
