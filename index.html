@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="apple-touch-icon" href="logo.png" />
     <title>ELITE — وكالة التسويق الطبي</title>
     <meta
       name="description"
@@ -66,11 +68,13 @@
             id="langToggle"
             title="Toggle language"
             type="button"
+            aria-label="Toggle language"
           >
             EN
           </button>
           <button
             class="icon-btn"
+            aria-label="Toggle theme"
             id="themeToggle"
             title="Toggle theme"
             type="button"
@@ -92,7 +96,7 @@
               >تواصل معنا</span
             ></a
           >
-          <button class="burger" id="burgerBtn" type="button">
+          <button class="burger" id="burgerBtn" type="button" aria-label="Toggle menu">
             <span></span>
           </button>
         </div>
@@ -361,7 +365,7 @@
   <div class="video-frame">
     <iframe
       id="showcaseVideo"
-      src=""
+      
       title="Case video"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen
@@ -379,7 +383,7 @@
     
       <a href="#"
       id="videoInstaBtn"
-      class="video-insta-btn "
+      class="video-insta-btn cta"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -419,163 +423,247 @@
           </h2>
         </div>
 
-        <div class="story-card reveal">
-          <div class="story-quote-wrap">
-            <div class="quote-mark">"</div>
-            <p
-              class="story-quote"
-              data-ar="قبل Elite كنا نعتمد على تسويق عشوائي بلا نتيجة واضحة. بعد أول شهرين صار عندنا نظام واضح وحجوزات ثابتة كل أسبوع."
-              data-en="Before Elite, our marketing was scattered with no clear result. Within two months we had a clear system and steady weekly bookings."
+        <div class="story-full reveal" data-reveal-delay="0">
+          <div class="story-full-media">
+            <!-- STORY 1 VIDEO — replace YOUTUBE_ID_STORY_1 below with the YouTube video ID
+                 (the part of the YouTube link after /watch?v= or /shorts/) -->
+            <div class="story-full-video">
+              <iframe
+                src="https://www.youtube.com/embed/YOUTUBE_ID_STORY_1?rel=0&modestbranding=1&playsinline=1"
+                title="Case video — Dr. Haneen"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <!-- STORY 1 INSTAGRAM — replace the # below with the Instagram reel/post link -->
+            <a
+              href="#"
+              class="story-insta-btn"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              قبل Elite كنا نعتمد على تسويق عشوائي بلا نتيجة واضحة. بعد أول
-              شهرين صار عندنا نظام واضح وحجوزات ثابتة كل أسبوع.
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.2" cy="6.8" r="1"/>
+              </svg>
+              <span data-ar="عرض على إنستقرام" data-en="View on Instagram">عرض على إنستقرام</span>
+            </a>
+          </div>
+          <div class="story-full-body">
+            <h3 class="story-full-title" data-ar="من صفر متابعين… إلى طبيبة تعتمد على صفحاتها بشكل كامل" data-en="From Zero Followers to a Doctor Who Fully Relies on Her Pages">
+              من صفر متابعين… إلى طبيبة تعتمد على صفحاتها بشكل كامل
+            </h3>
+
+            <p data-ar="لما بدأنا ويا د. حنين، كانت جديدة ببغداد. أول عيادة خاصة إلها كانت داخل مستشفى بمنطقة السيدية، وكان الوضع واضح جداً: صفر متابعين، صفر مراجعين، وصفر حضور بالسوق." data-en="When we started with Dr. Haneen, she was new to Baghdad. Her first private clinic was inside a hospital in the Al-Saidiya area, and the situation was crystal clear: zero followers, zero patients, zero presence in the market.">
+              لما بدأنا ويا د. حنين، كانت جديدة ببغداد. أول عيادة خاصة إلها كانت داخل مستشفى بمنطقة السيدية، وكان الوضع واضح جداً: صفر متابعين، صفر مراجعين، وصفر حضور بالسوق.
             </p>
+
+            <p data-ar="وكان التحدي مو بس نجيب حجوزات… التحدي الحقيقي كان: شلون نبني اسم طبيبة جديدة من الصفر؟" data-en="The challenge wasn't just getting bookings. The real challenge was: how do we build a brand-new doctor's name from scratch?">
+              وكان التحدي مو بس نجيب حجوزات… التحدي الحقيقي كان: شلون نبني اسم طبيبة جديدة من الصفر؟
+            </p>
+
+            <p data-ar="لذلك بالبداية ما ركزنا مباشرة على البيع. قررنا أن أول مرحلة تكون بناء جمهور وثقة. اشتغلنا على خطة تسويقية متكاملة تشمل المحتوى، الهوية، طريقة الظهور، الإعلانات واستهداف الجمهور المناسب. كان هدفنا نخلي الناس تعرف د. حنين، تفهم اختصاصها، وتشوف خبرتها… قبل ما نطلب منهم يحجزون." data-en="So in the beginning, we didn't focus directly on selling. We decided the first phase had to be building an audience and trust. We worked on a complete marketing plan covering content, identity, brand presence, ads, and targeting the right audience. Our goal was to let people get to know Dr. Haneen, understand her specialty, and see her expertise — before we ever asked them to book.">
+              لذلك بالبداية ما ركزنا مباشرة على البيع. قررنا أن أول مرحلة تكون بناء جمهور وثقة. اشتغلنا على خطة تسويقية متكاملة تشمل المحتوى، الهوية، طريقة الظهور، الإعلانات واستهداف الجمهور المناسب. كان هدفنا نخلي الناس تعرف د. حنين، تفهم اختصاصها، وتشوف خبرتها… قبل ما نطلب منهم يحجزون.
+            </p>
+
+            <h4 data-ar="الشهر الأول" data-en="Month One">الشهر الأول</h4>
+            <p data-ar="كان شهر بناء الثقة. خلينا الجمهور يتعرف عليها كطبيبة، على شخصيتها، اختصاصها وطريقة تعاملها. ما استعجلنا النتائج، لأننا نعرف أن المريض، خصوصاً بالمجال الطبي، ما يحجز من أول مشاهدة. هو أولاً يشوفك… بعدين يتابعك… بعدين يثق بيك… وبعدها يبدأ يفكر بالمراجعة." data-en="This was the month of building trust. We let the audience get to know her as a doctor — her personality, her specialty, and her approach with patients. We didn't rush the results, because a patient — especially in the medical field — doesn't book from the first view. First they see you, then they follow you, then they trust you, and only then do they think about visiting you.">
+              كان شهر بناء الثقة. خلينا الجمهور يتعرف عليها كطبيبة، على شخصيتها، اختصاصها وطريقة تعاملها. ما استعجلنا النتائج، لأننا نعرف أن المريض، خصوصاً بالمجال الطبي، ما يحجز من أول مشاهدة. هو أولاً يشوفك… بعدين يتابعك… بعدين يثق بيك… وبعدها يبدأ يفكر بالمراجعة.
+            </p>
+
+            <h4 data-ar="الشهر الثاني" data-en="Month Two">الشهر الثاني</h4>
+            <p data-ar="غيرنا استراتيجية المحتوى. بعد ما بدأ يتكون جمهور، انتقلنا من مرحلة «من هي د. حنين؟» إلى مرحلة «ليش المريض يحتاج يراجع د. حنين؟». بدأنا نشتغل على محتوى أكثر ارتباطاً بمشاكل المريض، اعتراضاته، مخاوفه والأسئلة اللي تدور بباله." data-en="We shifted the content strategy. Once an audience had formed, we moved from 'Who is Dr. Haneen?' to 'Why does a patient need to see Dr. Haneen?'. We started creating content more connected to patients' problems, objections, fears, and the questions on their minds.">
+              غيرنا استراتيجية المحتوى. بعد ما بدأ يتكون جمهور، انتقلنا من مرحلة «من هي د. حنين؟» إلى مرحلة «ليش المريض يحتاج يراجع د. حنين؟». بدأنا نشتغل على محتوى أكثر ارتباطاً بمشاكل المريض، اعتراضاته، مخاوفه والأسئلة اللي تدور بباله.
+            </p>
+
+            <p data-ar="وهنا بدأ التغيير يظهر. المراجعين بدأوا يزيدون تدريجياً، وما عاد الموضوع مجرد رسائل ومتابعين… بدأت تصير حجوزات فعلية وعمليات." data-en="And that's when the shift began to show. Patient visits gradually started to increase, and it was no longer just messages and followers — it became actual bookings and procedures.">
+              وهنا بدأ التغيير يظهر. المراجعين بدأوا يزيدون تدريجياً، وما عاد الموضوع مجرد رسائل ومتابعين… بدأت تصير حجوزات فعلية وعمليات.
+            </p>
+
+            <p data-ar="ومع استمرار الخطة وتحسين المحتوى والإعلانات بناءً على النتائج، صار عندنا شيء أهم من الأرقام: صار عند د. حنين حضور حقيقي بالسوق." data-en="As the plan continued and we improved content and ads based on results, something more important than numbers emerged: Dr. Haneen gained a real presence in the market.">
+              ومع استمرار الخطة وتحسين المحتوى والإعلانات بناءً على النتائج، صار عندنا شيء أهم من الأرقام: صار عند د. حنين حضور حقيقي بالسوق.
+            </p>
+
+            <p data-ar="اليوم، د. حنين مو مجرد طبيبة عندها صفحة على السوشيال ميديا. صفحتها أصبحت واحدة من أهم مصادر المراجعين والحجوزات إلها." data-en="Today, Dr. Haneen isn't just a doctor with a social media page. Her page has become one of the most important sources of patients and bookings for her.">
+              اليوم، د. حنين مو مجرد طبيبة عندها صفحة على السوشيال ميديا. صفحتها أصبحت واحدة من أهم مصادر المراجعين والحجوزات إلها.
+            </p>
+
+            <p class="story-highlight" data-ar="والأهم؟ إن هذا كله بدأ من: صفر متابعين، صفر مراجعين، وأول عيادة خاصة إلها ببغداد." data-en="And the most important part? All of this started from: zero followers, zero patients, and her very first private clinic in Baghdad.">
+              والأهم؟ إن هذا كله بدأ من: صفر متابعين، صفر مراجعين، وأول عيادة خاصة إلها ببغداد.
+            </p>
+
+            <p data-ar="وهنا كانت الفكرة الأساسية من البداية: مو هدفنا نسوي صفحة حلوة للطبيبة… هدفنا نبني منظومة تسويقية تجيب مريض حقيقي." data-en="And here was the core idea from the beginning: our goal wasn't just to make a nice-looking page for the doctor — our goal was to build a marketing system that brings in real patients.">
+              وهنا كانت الفكرة الأساسية من البداية: مو هدفنا نسوي صفحة حلوة للطبيبة… هدفنا نبني منظومة تسويقية تجيب مريض حقيقي.
+            </p>
+
+            <p class="story-tagline grad-text" data-ar="من الصفر… إلى الاعتماد الكامل على الصفحات." data-en="From zero… to full reliance on the pages.">
+              من الصفر… إلى الاعتماد الكامل على الصفحات.
+            </p>
+
             <div class="story-meta">
-              <div class="story-avatar">م.ت</div>
+              <div class="story-avatar" data-ar="د.ح" data-en="dr.h">د.ح</div>
               <div class="story-name">
-                <strong
-                  data-ar="مدير عيادة تجميل"
-                  data-en="Cosmetic Clinic Director"
-                  >مدير عيادة تجميل</strong
-                >
+                <strong data-ar="طبيبة عيادة خاصة" data-en="Private Clinic Doctor">طبيبة عيادة خاصة</strong>
                 <span data-ar="بغداد" data-en="Baghdad">بغداد</span>
               </div>
             </div>
           </div>
-          <div class="story-stat-panel">
-            <div class="big-num grad-text">
-              <span
-                class="counter"
-                data-prefix="+"
-                data-value="180"
-                data-suffix="%"
-                >0</span
-              >
-            </div>
-            <div
-              class="big-label"
-              data-ar="زيادة بالحجوزات خلال 8 أسابيع"
-              data-en="Increase in bookings within 8 weeks"
-            >
-              زيادة بالحجوزات خلال 8 أسابيع
-            </div>
-            <div class="divider"></div>
-            <div class="mini-row">
-              <span data-ar="مدة الحملة" data-en="Campaign length"
-                >مدة الحملة</span
-              ><b data-ar="8 أسابيع" data-en="8 weeks">8 أسابيع</b>
-            </div>
-            <div class="mini-row">
-              <span data-ar="القطاع" data-en="Sector">القطاع</span
-              ><b data-ar="تجميل وجلدية" data-en="Cosmetic & Derma"
-                >تجميل وجلدية</b
-              >
-            </div>
-          </div>
         </div>
 
-        <div class="story-card reveal">
-          <div class="story-stat-panel">
-            <div class="big-num grad-text">
-              <span
-                class="counter"
-                data-prefix="-"
-                data-value="40"
-                data-suffix="%"
-                >0</span
-              >
+        <div class="story-full reveal" data-reveal-delay="120">
+          <div class="story-full-media">
+            <!-- STORY 2 VIDEO — replace YOUTUBE_ID_STORY_2 below with the YouTube video ID
+                 (the part of the YouTube link after /watch?v= or /shorts/) -->
+            <div class="story-full-video">
+              <iframe
+                src="https://www.youtube.com/embed/YOUTUBE_ID_STORY_2?rel=0&modestbranding=1&playsinline=1"
+                title="Case video — Dr. Abdulaziz Al-Rubaie"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
             </div>
-            <div
-              class="big-label"
-              data-ar="انخفاض بنسبة الحجوزات الملغاة"
-              data-en="Drop in cancelled appointments"
+            <!-- STORY 2 INSTAGRAM — replace the # below with the Instagram reel/post link -->
+            <a
+              href="#"
+              class="story-insta-btn"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              انخفاض بنسبة الحجوزات الملغاة
-            </div>
-            <div class="divider"></div>
-            <div class="mini-row">
-              <span data-ar="مدة الحملة" data-en="Campaign length"
-                >مدة الحملة</span
-              ><b data-ar="3 أشهر" data-en="3 months">3 أشهر</b>
-            </div>
-            <div class="mini-row">
-              <span data-ar="القطاع" data-en="Sector">القطاع</span
-              ><b data-ar="طب أسنان" data-en="Dentistry">طب أسنان</b>
-            </div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.2" cy="6.8" r="1"/>
+              </svg>
+              <span data-ar="عرض على إنستقرام" data-en="View on Instagram">عرض على إنستقرام</span>
+            </a>
           </div>
-          <div class="story-quote-wrap">
-            <div class="quote-mark">"</div>
-            <p
-              class="story-quote"
-              data-ar="أهم شي إن Elite ما تبيع لنا وعود، كل قرار مبني على أرقام. صرنا نعرف بالضبط وين نصرف ميزانيتنا."
-              data-en="What matters most is Elite doesn't sell us promises — every decision is backed by numbers. Now we know exactly where our budget goes."
-            >
-              أهم شي إن Elite ما تبيع لنا وعود، كل قرار مبني على أرقام. صرنا
-              نعرف بالضبط وين نصرف ميزانيتنا.
+          <div class="story-full-body">
+            <h3 class="story-full-title" data-ar="بالبداية… ما كان مقتنع إن السوشيال ميديا ممكن تجيب مراجعين" data-en="At First, He Wasn't Convinced Social Media Could Bring Patients">
+              بالبداية… ما كان مقتنع إن السوشيال ميديا ممكن تجيب مراجعين
+            </h3>
+
+            <p data-ar="د. عبدالعزيز الربيعي، اختصاص جراحة الوجه والفكين، كان عنده حضور على السوشيال ميديا، لكن بشكل محدود: متابعين قليلين، وصول ضعيف، وحضور ما يعكس مكانته كجراح بورد." data-en="Dr. Abdulaziz Al-Rubaie, a maxillofacial surgeon, already had a social media presence — but a limited one: few followers, weak reach, and a presence that didn't reflect his standing as a board-certified surgeon.">
+              د. عبدالعزيز الربيعي، اختصاص جراحة الوجه والفكين، كان عنده حضور على السوشيال ميديا، لكن بشكل محدود: متابعين قليلين، وصول ضعيف، وحضور ما يعكس مكانته كجراح بورد.
             </p>
+
+            <p data-ar="وفوق هذا، كان عنده تردد طبيعي. كثرة شركات التسويق والوعود الموجودة بالسوق خلت موضوع الثقة بالتسويق مو سهل. وكان سؤاله ببساطة: «هل فعلاً السوشيال ميديا ممكن تجيبلي مراجعين؟»" data-en="On top of that, he had a natural hesitation. The sheer number of marketing agencies and promises out there made trusting marketing difficult. His question was simple: 'Can social media really bring me patients?'">
+              وفوق هذا، كان عنده تردد طبيعي. كثرة شركات التسويق والوعود الموجودة بالسوق خلت موضوع الثقة بالتسويق مو سهل. وكان سؤاله ببساطة: «هل فعلاً السوشيال ميديا ممكن تجيبلي مراجعين؟»
+            </p>
+
+            <p data-ar="قررنا نشتغل سوا." data-en="We decided to work together.">
+              قررنا نشتغل سوا.
+            </p>
+
+            <h4 data-ar="الشهر الأول: نعيد بناء الحضور" data-en="Month One: Rebuilding the Presence">الشهر الأول: نعيد بناء الحضور</h4>
+            <p data-ar="ما بدأنا بالإعلانات مباشرة. أول خطوة كانت نرتب حضور الدكتور من جديد، بحيث يكون المحتوى، الصورة، طريقة الظهور والرسالة التسويقية تليق بدكتور جراح بورد واختصاصه الدقيق." data-en="We didn't start with ads directly. The first step was rebuilding the doctor's presence from scratch, so the content, image, on-camera presence, and marketing message would match a board-certified surgeon and his precise specialty.">
+              ما بدأنا بالإعلانات مباشرة. أول خطوة كانت نرتب حضور الدكتور من جديد، بحيث يكون المحتوى، الصورة، طريقة الظهور والرسالة التسويقية تليق بدكتور جراح بورد واختصاصه الدقيق.
+            </p>
+
+            <p data-ar="وبنفس الوقت، بنينا خطة تسويقية واضحة: شنو ننشر؟ لمن نحچي؟ شنو المشاكل اللي نستهدفها؟ وشلون نحول المتابع إلى مراجع؟" data-en="At the same time, we built a clear marketing plan: what do we post? Who are we speaking to? Which problems do we target? And how do we turn a follower into a patient?">
+              وبنفس الوقت، بنينا خطة تسويقية واضحة: شنو ننشر؟ لمن نحچي؟ شنو المشاكل اللي نستهدفها؟ وشلون نحول المتابع إلى مراجع؟
+            </p>
+
+            <p data-ar="بعدها بدأ الفرق يظهر. بدأت الاستفسارات تزيد بشكل واضح. ومع الوقت، ما بقت مجرد رسائل ومشاهدات… عدد المراجعين بدأ يرتفع. وبعدها بدأت العمليات تزيد بشكل ملحوظ." data-en="Then the difference started to show. Inquiries clearly began to increase. Over time, it was no longer just messages and views — the number of patients started rising. After that, procedures began increasing noticeably.">
+              بعدها بدأ الفرق يظهر. بدأت الاستفسارات تزيد بشكل واضح. ومع الوقت، ما بقت مجرد رسائل ومشاهدات… عدد المراجعين بدأ يرتفع. وبعدها بدأت العمليات تزيد بشكل ملحوظ.
+            </p>
+
+            <p class="story-highlight" data-ar="وهنا تغيرت نظرة الدكتور للتسويق. لأن اللي كنا نحچي عنه بالبداية كـ«خطة تسويقية»… صار يشوفه بشكل عملي: استفسارات ← حجوزات ← مراجعين ← عمليات." data-en="This is when the doctor's view of marketing changed. What we used to call a 'marketing plan' at first, he now sees in practical terms: inquiries → bookings → patients → procedures.">
+              وهنا تغيرت نظرة الدكتور للتسويق. لأن اللي كنا نحچي عنه بالبداية كـ«خطة تسويقية»… صار يشوفه بشكل عملي: استفسارات ← حجوزات ← مراجعين ← عمليات.
+            </p>
+
+            <p data-ar="واليوم، التسويق بالنسبة لد. عبدالعزيز مو شيء ثانوي أو تجربة مؤقتة. صار جزء أساسي من عمله، ومعتمد عليه كمصدر مستمر لجذب المراجعين." data-en="Today, marketing isn't a side thing or a temporary experiment for Dr. Abdulaziz. It has become a core part of his practice — a steady source he relies on to attract patients.">
+              واليوم، التسويق بالنسبة لد. عبدالعزيز مو شيء ثانوي أو تجربة مؤقتة. صار جزء أساسي من عمله، ومعتمد عليه كمصدر مستمر لجذب المراجعين.
+            </p>
+
+            <p class="story-tagline grad-text" data-ar="حضور عادي ← بناء ثقة ← استفسارات ← مراجعين ← عمليات ← منظومة تسويقية يعتمد عليها الدكتور." data-en="An ordinary presence → building trust → inquiries → patients → procedures → a marketing system the doctor can rely on.">
+              حضور عادي ← بناء ثقة ← استفسارات ← مراجعين ← عمليات ← منظومة تسويقية يعتمد عليها الدكتور.
+            </p>
+
             <div class="story-meta">
-              <div class="story-avatar">د.ح</div>
+              <div class="story-avatar" data-ar="د.ع" data-en="dr.a">د.ع</div>
               <div class="story-name">
-                <strong data-ar="مالكة مركز أسنان" data-en="Dental Center Owner"
-                  >مالكة مركز أسنان</strong
-                >
-                <span data-ar="أربيل" data-en="Erbil">أربيل</span>
+                <strong data-ar="جراح وجه وفكين" data-en="Maxillofacial Surgeon">جراح وجه وفكين</strong>
+                <span data-ar="العراق" data-en="Iraq">العراق</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="story-card reveal">
-          <div class="story-quote-wrap">
-            <div class="quote-mark">"</div>
-            <p
-              class="story-quote"
-              data-ar="ساعدونا نبني ثقة رقمية للمستشفى من الصفر. الفرق واضح بعدد الاستفسارات اليومية اللي نستقبلها الحين."
-              data-en="They helped us build the hospital's digital trust from zero. The difference is clear in the daily inquiries we receive now."
-            >
-              ساعدونا نبني ثقة رقمية للمستشفى من الصفر. الفرق واضح بعدد
-              الاستفسارات اليومية اللي نستقبلها الحين.
-            </p>
-            <div class="story-meta">
-              <div class="story-avatar">أ.ك</div>
-              <div class="story-name">
-                <strong
-                  data-ar="مدير تسويق مستشفى"
-                  data-en="Hospital Marketing Director"
-                  >مدير تسويق مستشفى</strong
-                >
-                <span data-ar="البصرة" data-en="Basra">البصرة</span>
-              </div>
+        <div class="story-full reveal" data-reveal-delay="240">
+          <div class="story-full-media">
+            <!-- STORY 3 VIDEO — replace YOUTUBE_ID_STORY_3 below with the YouTube video ID
+                 (the part of the YouTube link after /watch?v= or /shorts/) -->
+            <div class="story-full-video">
+              <iframe
+                src="https://www.youtube.com/embed/YOUTUBE_ID_STORY_3?rel=0&modestbranding=1&playsinline=1"
+                title="Case video — Dr. Zainab"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
             </div>
+            <!-- STORY 3 INSTAGRAM — replace the # below with the Instagram reel/post link -->
+            <a
+              href="#"
+              class="story-insta-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.2" cy="6.8" r="1"/>
+              </svg>
+              <span data-ar="عرض على إنستقرام" data-en="View on Instagram">عرض على إنستقرام</span>
+            </a>
           </div>
-          <div class="story-stat-panel">
-            <div class="big-num grad-text">
-              <span
-                class="counter"
-                data-prefix="+"
-                data-value="3.2"
-                data-suffix="x"
-                >0</span
-              >
-            </div>
-            <div
-              class="big-label"
-              data-ar="ارتفاع بعدد الاستفسارات الشهرية"
-              data-en="Increase in monthly inquiries"
-            >
-              ارتفاع بعدد الاستفسارات الشهرية
-            </div>
-            <div class="divider"></div>
-            <div class="mini-row">
-              <span data-ar="مدة الحملة" data-en="Campaign length"
-                >مدة الحملة</span
-              ><b data-ar="6 أشهر" data-en="6 months">6 أشهر</b>
-            </div>
-            <div class="mini-row">
-              <span data-ar="القطاع" data-en="Sector">القطاع</span
-              ><b data-ar="مستشفى أهلي" data-en="Private Hospital"
-                >مستشفى أهلي</b
-              >
+          <div class="story-full-body">
+            <h3 class="story-full-title" data-ar="بالبداية كانت عندها 3 مخاوف…" data-en="At First, She Had 3 Fears…">
+              بالبداية كانت عندها 3 مخاوف…
+            </h3>
+
+            <p data-ar="لما بدأت د. زينب، اختصاص جراحة العيون — بورد عربي، ويانا، كانت حرفياً تبدأ من الصفر: صفر متابعين، صفر مراجعين من السوشيال ميديا، وما عندها أي ظهور فعلي على المنصات." data-en="When Dr. Zainab, an ophthalmology surgeon — Arab Board certified — started with us, she was literally starting from zero: zero followers, zero patients from social media, and no real presence on the platforms at all.">
+              لما بدأت د. زينب، اختصاص جراحة العيون — بورد عربي، ويانا، كانت حرفياً تبدأ من الصفر: صفر متابعين، صفر مراجعين من السوشيال ميديا، وما عندها أي ظهور فعلي على المنصات.
+            </p>
+
+            <p data-ar="لكن المشكلة ما كانت بس بالحضور. كانت عندها مخاوف حقيقية: «فعلاً راح يجون مراجعين؟» «أخاف أطلع مو حلوة بالتصوير.» «أخاف أتعب إذا بلشنا.»" data-en="But the problem wasn't just about presence. She had real fears: 'Will patients actually come?' 'I'm afraid I won't look good on camera.' 'I'm afraid it'll be exhausting once we start.'">
+              لكن المشكلة ما كانت بس بالحضور. كانت عندها مخاوف حقيقية: «فعلاً راح يجون مراجعين؟» «أخاف أطلع مو حلوة بالتصوير.» «أخاف أتعب إذا بلشنا.»
+            </p>
+
+            <p data-ar="وهنا كان دورنا مو بس نسوي إلها محتوى. كان دورنا نخلي عملية التسويق نفسها سهلة ومريحة عليها." data-en="Here, our job wasn't just to create content for her. Our job was to make the marketing process itself easy and comfortable for her.">
+              وهنا كان دورنا مو بس نسوي إلها محتوى. كان دورنا نخلي عملية التسويق نفسها سهلة ومريحة عليها.
+            </p>
+
+            <h4 data-ar="بدأنا من الصفر" data-en="We Started From Zero">بدأنا من الصفر</h4>
+            <p data-ar="بنينا حضورها من البداية، ورتبنا المحتوى وطريقة ظهورها، واشتغلنا على خطة هدفها مو مجرد مشاهدات… بل الوصول إلى المريض الحقيقي." data-en="We built her presence from the ground up, organized her content and on-camera style, and worked on a plan whose goal wasn't just views — but reaching the real patient.">
+              بنينا حضورها من البداية، ورتبنا المحتوى وطريقة ظهورها، واشتغلنا على خطة هدفها مو مجرد مشاهدات… بل الوصول إلى المريض الحقيقي.
+            </p>
+
+            <p data-ar="وبدأ الفرق يظهر. صار عندها وصول ممتاز، وبدأ عدد المراجعين يزيد تدريجياً." data-en="And the difference began to show. Her reach became excellent, and her number of patients gradually started increasing.">
+              وبدأ الفرق يظهر. صار عندها وصول ممتاز، وبدأ عدد المراجعين يزيد تدريجياً.
+            </p>
+
+            <p class="story-highlight" data-ar="لكن المفاجأة الأكبر؟ المخاوف اللي كانت بالبداية… تحولت إلى شيء ترفيهي بالنسبة إلها. طلعت كلش حلوة بالتصوير، وصارت تحب التجربة والتعامل ويانا." data-en="But the bigger surprise? The fears she started with turned into something she actually enjoys. She turned out to look great on camera, and came to love the experience of working with us.">
+              لكن المفاجأة الأكبر؟ المخاوف اللي كانت بالبداية… تحولت إلى شيء ترفيهي بالنسبة إلها. طلعت كلش حلوة بالتصوير، وصارت تحب التجربة والتعامل ويانا.
+            </p>
+
+            <p data-ar="حتى وقت التصوير، ما صار عليها تحفظ نصوص طويلة أو تفكر شتگول. كاتب المحتوى يجهز النصوص مسبقاً، وهي وقت التصوير كل اللي عليها تحچي النص. فبدل ما يكون التصوير عبء عليها… صار جزء بسيط وممتع من يومها." data-en="Even during filming, she no longer has to memorize long scripts or think about what to say. Our content writer prepares the script in advance, and at filming time all she has to do is deliver it. So instead of filming being a burden on her, it became a simple, enjoyable part of her day.">
+              حتى وقت التصوير، ما صار عليها تحفظ نصوص طويلة أو تفكر شتگول. كاتب المحتوى يجهز النصوص مسبقاً، وهي وقت التصوير كل اللي عليها تحچي النص. فبدل ما يكون التصوير عبء عليها… صار جزء بسيط وممتع من يومها.
+            </p>
+
+            <p class="story-tagline grad-text" data-ar="من صفر حضور… إلى حضور قوي، مراجعين، وتجربة تحبها د. زينب." data-en="From zero presence... to a strong presence, patients, and an experience Dr. Zainab genuinely loves.">
+              من صفر حضور… إلى حضور قوي، مراجعين، وتجربة تحبها د. زينب.
+            </p>
+
+            <div class="story-meta">
+              <div class="story-avatar" data-ar="د.ز" data-en="dr.z">د.ز</div>
+              <div class="story-name">
+                <strong data-ar="جراحة العيون" data-en="Ophthalmology Surgeon">جراحة العيون</strong>
+                <span data-ar="العراق" data-en="Iraq">العراق</span>
+              </div>
             </div>
           </div>
         </div>
@@ -590,7 +678,7 @@
             الملف الشخصي
           </div>
           <h2 data-ar="من نحن" data-en="Who We Are">من نحن</h2>
-          <div class="about-text" style="margin-top: 22px">
+          <div class="about-text" >
             <p
               data-ar="Elite فريق تسويق متخصص حصراً بالقطاع الطبي — عيادات، مراكز طبية، ومستشفيات أهلية. ما نشتغل بكل المجالات، نشتغل بمجال واحد نعرفه زين."
               data-en="Elite is a marketing team focused exclusively on the medical sector — clinics, medical centers, and private hospitals. We don't work in every field; we work in one we know deeply."
@@ -687,7 +775,6 @@
       <div class="wrap contact-inner">
         <div
           class="eyebrow"
-          style="justify-content: center"
           data-ar="تواصل معنا"
           data-en="Contact Us"
         >
@@ -792,7 +879,7 @@
       </div>
     </footer>
 
-    <button class="to-top" id="toTop" title="Back to top" type="button">
+    <button class="to-top" id="toTop" title="Back to top" type="button" aria-label="Back to top">
       <svg
         viewBox="0 0 24 24"
         fill="none"

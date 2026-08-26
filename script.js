@@ -4,19 +4,17 @@ document.addEventListener("DOMContentLoaded", function () {
     if (el) el.addEventListener(ev, fn);
   }
 
-  /* ---------- Preloader ----------
-     Fixed: removed the artificial 1500ms minimum wait. Now the file is
-     hidden as soon as the page actually finishes loading (or after a
-     much shorter 900ms safety cap if 'load' is slow to fire because of
-     a font/CDN hiccup) instead of always forcing a multi-second wait. */
-  var preloader = document.getElementById("preloader");
-  var body = document.body;
-  var loadFinished = false;
+  /* ---------- Preloader ----------*/
+
+  const preloader = document.getElementById("preloader");
+  const body = document.body;
+  /*a switch, starts as false ("not done yet")*/
+  let loadFinished = false;
   function finishLoad() {
     if (loadFinished) return;
     loadFinished = true;
-    body.classList.remove("locked");
-    if (preloader) preloader.classList.add("hide");
+    body.classList.remove("locked"); // unlock scrolling
+    if (preloader) preloader.classList.add("hide"); // hide the loading screen
   }
   if (document.readyState === "complete") {
     setTimeout(finishLoad, 150);
@@ -25,20 +23,25 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(finishLoad, 150);
     });
   }
+  /*If the page is already fully loaded by the time this code runs → 
+  just call finishLoad() after a tiny 150ms pause.
+If it's not loaded yet → wait for the "load" event (page fully ready),
+ then call finishLoad() after that same 150ms pause.*/
+
   // safety net in case 'load' is delayed by slow external fonts/CDNs — much shorter than before
   setTimeout(finishLoad, 1000);
 
   /* ---------- NAV scroll state + scroll progress + back-to-top ---------- */
-  var nav = document.getElementById("nav");
-  var progress = document.getElementById("scrollProgress");
-  var toTop = document.getElementById("toTop");
+  const nav = document.getElementById("nav");
+  const progress = document.getElementById("scrollProgress");
+  const toTop = document.getElementById("toTop");
   window.addEventListener(
     "scroll",
     function () {
-      var y = window.scrollY || document.documentElement.scrollTop;
+      const y = window.scrollY || document.documentElement.scrollTop;
       if (nav) nav.classList.toggle("scrolled", y > 40);
       if (toTop) toTop.classList.toggle("show", y > 500);
-      var h =
+      const h =
         document.documentElement.scrollHeight -
         document.documentElement.clientHeight;
       if (progress)
@@ -51,8 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* ---------- Mobile menu ---------- */
-  var burger = document.getElementById("burgerBtn");
-  var panel = document.getElementById("mobilePanel");
+  const burger = document.getElementById("burgerBtn");
+  const panel = document.getElementById("mobilePanel");
   on(burger, "click", function () {
     burger.classList.toggle("open");
     panel.classList.toggle("open");
@@ -67,12 +70,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* ---------- Theme toggle ---------- */
-  var themeToggle = document.getElementById("themeToggle");
-  var themeIcon = document.getElementById("themeIcon");
-  var root = document.documentElement;
-  var sunPath =
+  const themeToggle = document.getElementById("themeToggle");
+  const themeIcon = document.getElementById("themeIcon");
+  const root = document.documentElement;
+  const sunPath =
     "M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4";
-  var moonPath = "M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z";
+  const moonPath = "M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z";
 
   function setTheme(t) {
     root.setAttribute("data-theme", t);
@@ -89,18 +92,18 @@ document.addEventListener("DOMContentLoaded", function () {
     } catch (e) {}
   }
   on(themeToggle, "click", function () {
-    var cur = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    const cur = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
     setTheme(cur);
   });
-  var savedTheme = "dark";
+  let savedTheme = "dark";
   try {
     savedTheme = localStorage.getItem("elite-theme") || "dark";
   } catch (e) {}
   setTheme(savedTheme);
 
   /* ---------- Language toggle ---------- */
-  var langToggle = document.getElementById("langToggle");
-  var currentLang = "ar";
+  const langToggle = document.getElementById("langToggle");
+  let currentLang = "ar";
   function applyLang(lang) {
     document.querySelectorAll("[data-ar][data-en]").forEach(function (el) {
       el.textContent =
@@ -117,10 +120,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* ---------- Hero spotlight ---------- */
-  var hero = document.getElementById("hero");
-  var spot = document.getElementById("heroSpot");
+  const hero = document.getElementById("hero");
+  const spot = document.getElementById("heroSpot");
   on(hero, "mousemove", function (e) {
-    var r = hero.getBoundingClientRect();
+    const r = hero.getBoundingClientRect();
     spot.style.setProperty(
       "--mx",
       ((e.clientX - r.left) / r.width) * 100 + "%",
@@ -132,12 +135,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* ---------- Parallax grid on scroll ---------- */
-  var heroGrid = document.getElementById("heroGrid");
+  const heroGrid = document.getElementById("heroGrid");
   window.addEventListener(
     "scroll",
     function () {
       if (!heroGrid) return;
-      var y = window.scrollY || 0;
+      const y = window.scrollY || 0;
       if (y < window.innerHeight) {
         heroGrid.style.transform = "translateY(" + y * 0.15 + "px)";
       }
@@ -153,14 +156,14 @@ document.addEventListener("DOMContentLoaded", function () {
      evenly-spaced per-card delay (via data-reveal-delay, 0/120/240/360ms)
      so the six case cards fan in one after another instead of popping
      in almost together. */
-  var revealEls = document.querySelectorAll(".reveal, .reveal-clip");
+  const revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(
+    const io = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          var el = entry.target;
+          const el = entry.target;
           if (entry.isIntersecting) {
-            var delay = el.getAttribute("data-reveal-delay");
+            const delay = el.getAttribute("data-reveal-delay");
             clearTimeout(el._revealTimer);
             if (delay) {
               el._revealTimer = setTimeout(
@@ -190,22 +193,22 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* ---------- Counting number animation (replays with each reveal) ---------- */
-  var counters = document.querySelectorAll(".counter");
+  const counters = document.querySelectorAll(".counter");
   function animateCounter(el) {
-    var target = parseFloat(el.getAttribute("data-value"));
-    var prefix = el.getAttribute("data-prefix") || "";
-    var suffix = el.getAttribute("data-suffix") || "";
-    var isDecimal = String(target).indexOf(".") !== -1;
-    var duration = 900;
-    var startTime = null;
+    const target = parseFloat(el.getAttribute("data-value"));
+    const prefix = el.getAttribute("data-prefix") || "";
+    const suffix = el.getAttribute("data-suffix") || "";
+    const isDecimal = String(target).indexOf(".") !== -1;
+    const duration = 900;
+    let startTime = null;
     function easeOutExpo(x) {
       return x === 1 ? 1 : 1 - Math.pow(2, -10 * x);
     }
     function step(ts) {
       if (!startTime) startTime = ts;
-      var progressRatio = Math.min((ts - startTime) / duration, 1);
-      var eased = easeOutExpo(progressRatio);
-      var current = target * eased;
+      const progressRatio = Math.min((ts - startTime) / duration, 1);
+      const eased = easeOutExpo(progressRatio);
+      const current = target * eased;
       el.textContent =
         prefix +
         (isDecimal ? current.toFixed(1) : Math.round(current)) +
@@ -221,24 +224,14 @@ document.addEventListener("DOMContentLoaded", function () {
     el.textContent = prefix + (isDecimal ? (0).toFixed(1) : 0) + suffix;
     el._counterFrame = requestAnimationFrame(step);
   }
-  // if ("IntersectionObserver" in window && counters.length) {
-  //   var cio = new IntersectionObserver(
-  //     function (entries) {
-  //       entries.forEach(function (entry) {
-  //         if (entry.isIntersecting) {
-  //           animateCounter(entry.target);
-  //         }
-  //       });
-  //     },
-  //     { threshold: 0.5 },
-  //   );
+
   if ("IntersectionObserver" in window && counters.length) {
-    var cio = new IntersectionObserver(
+    const cio = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            var card = entry.target.closest("[data-reveal-delay]");
-            var delay = card
+            const card = entry.target.closest("[data-reveal-delay]");
+            const delay = card
               ? parseInt(card.getAttribute("data-reveal-delay"), 10)
               : 0;
             clearTimeout(entry.target._counterTimer);
@@ -260,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* ---------- Video showcase carousel ---------- */
-  var videoData = [
+  const videoData = [
     {
       youtubeId: "RPNn7k0-WdY",
       instagram:
@@ -301,16 +294,16 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   ];
 
-  var videoEl = document.getElementById("showcaseVideo");
-  var dotsWrap = document.getElementById("videoDots");
-  var videoInstaEl = document.getElementById("videoInstaBtn");
-  var vIndex = 0;
+  const videoEl = document.getElementById("showcaseVideo");
+  const dotsWrap = document.getElementById("videoDots");
+  const videoInstaEl = document.getElementById("videoInstaBtn");
+  let vIndex = 0;
 
   function buildDots() {
     if (!dotsWrap) return;
     dotsWrap.innerHTML = "";
     videoData.forEach(function (item, i) {
-      var dot = document.createElement("button");
+      const dot = document.createElement("button");
       dot.className = "video-dot" + (i === vIndex ? " active" : "");
       dot.type = "button";
       dot.setAttribute("aria-label", "Video " + (i + 1));
@@ -323,7 +316,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function goToVideo(i) {
     vIndex = (i + videoData.length) % videoData.length;
-    var item = videoData[vIndex];
+    const item = videoData[vIndex];
 
     // تحديث الفيديو
     if (videoEl) {
