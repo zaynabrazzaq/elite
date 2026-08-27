@@ -1015,6 +1015,9 @@ section {
   color: #fff;
   font-size: 0.85rem;
 }
+.story-name {
+  text-align: start;
+}
 .story-name strong {
   display: block;
   font-size: 0.92rem;
@@ -1086,15 +1089,16 @@ section {
 }
 .story-full-image {
   position: relative;
-  width: auto;
   height: auto;
+  width: auto;
+
   aspect-ratio: 9 / 16; /* reel ratio — same as the video-showcase section above */
   border-radius: 16px;
   overflow: hidden;
   background: #000;
   border: 1px solid var(--line);
   box-shadow: 0 20px 60px -20px rgba(123, 47, 247, 0.45);
-  margin-bottom: 45pxpx;
+  margin: 5px;
 }
 .story-full-video iframe {
   position: absolute;
