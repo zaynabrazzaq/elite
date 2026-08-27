@@ -129,7 +129,6 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -212,7 +211,6 @@ section {
   }
 }
 .preloader-label {
-  font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.22em;
   color: #a99cc4;
@@ -755,7 +753,7 @@ section {
 }
 .stat-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
@@ -1263,7 +1261,7 @@ section {
 }
 .about-values {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1f);
   gap: 18px;
   margin-top: 36px;
 }
@@ -1458,7 +1456,6 @@ footer {
 .footer-copy {
   color: var(--lo);
   font-size: 0.78rem;
-  font-family: var(--font-mono);
 }
 
 /* ============ BACK TO TOP ============ */
