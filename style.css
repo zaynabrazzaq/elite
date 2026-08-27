@@ -1088,17 +1088,26 @@ section {
   align-items: center;
 }
 .story-full-image {
-  position: relative;
+  /* position: relative;
   height: auto;
   width: auto;
 
-  aspect-ratio: 9 / 16; /* reel ratio — same as the video-showcase section above */
+  aspect-ratio: 9 / 16; /* reel ratio — same as the video-showcase section above//
   border-radius: 16px;
   overflow: hidden;
   background: #000;
   border: 1px solid var(--line);
   box-shadow: 0 20px 60px -20px rgba(123, 47, 247, 0.45);
-  margin: 5px;
+  margin: 5px; */
+  position: relative;
+  width: 240px;
+  height: 240px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 60px -20px rgba(123, 47, 247, 0.45);
+  margin: 5px auto;
 }
 .story-full-video iframe {
   position: absolute;
