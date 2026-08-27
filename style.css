@@ -1094,7 +1094,7 @@ section {
   background: #000;
   border: 1px solid var(--line);
   box-shadow: 0 20px 60px -20px rgba(123, 47, 247, 0.45);
-  margin-bottom: 1rem;
+  margin-bottom: 45pxpx;
 }
 .story-full-video iframe {
   position: absolute;
