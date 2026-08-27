@@ -1084,9 +1084,10 @@ section {
   flex-direction: column;
   align-items: center;
 }
-.story-full-video {
+.story-full-image {
   position: relative;
-  width: 100%;
+  width: auto;
+  height: auto;
   aspect-ratio: 9 / 16; /* reel ratio — same as the video-showcase section above */
   border-radius: 16px;
   overflow: hidden;
