@@ -797,6 +797,8 @@ section {
   line-height: 1.6;
 }
 .stories .stat-card .stat-label {
+  /* margin-bottom: 20px; */
+  margin-top: 8px;
   margin-bottom: 20px;
 }
 
@@ -1025,14 +1027,18 @@ section {
   line-height: 1.4;
   overflow: hidden; /* safety net: if a headline ever needed a 3rd line, it gets clipped instead of breaking alignment */
   display: flex;
-  align-items: center;
+  /* align-items: center;*/
+  align-items: flex-end;
   justify-content: center;
+}
+.stories .stat-card .stat-num {
+  margin-top: 14px;
 }
 .stories .stat-card .story-meta {
   margin-top: auto; /* pushes this row (and the button after it) down to the bottom */
 }
 
-.story-avatar {
+/* .story-avatar {
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -1044,7 +1050,7 @@ section {
   font-weight: 700;
   color: #fff;
   font-size: 0.85rem;
-}
+} */
 .story-name {
   /*text-align: center;*/
 
