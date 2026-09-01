@@ -121,7 +121,7 @@ section {
 @media screen and (max-width: 768px) and (max-width: 1024px) {
   /* Put your CSS rules for mobile screens in here! */
   section {
-    scroll-margin-top: 53px;
+    scroll-margin-top: 50px;
   }
 }
 
