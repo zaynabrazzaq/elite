@@ -116,12 +116,12 @@ button {
 section {
   position: relative;
 
-  scroll-margin-top: 40px;
+  scroll-margin-top: 30px;
 }
 @media screen and (max-width: 768px) {
   /* Put your CSS rules for mobile screens in here! */
   section {
-    scroll-margin-top: 58px;
+    scroll-margin-top: 53px;
   }
 }
 
