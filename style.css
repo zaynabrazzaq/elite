@@ -1310,7 +1310,7 @@ section {
 }
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 70px;
   align-items: center;
 }
@@ -1323,7 +1323,7 @@ section {
 }
 .about-values {
   display: grid;
-  grid-template-columns: repeat(4, 1f);
+  grid-template-columns: repeat(3, 1f);
   gap: 18px;
   margin-top: 36px;
 }
