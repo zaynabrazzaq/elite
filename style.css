@@ -796,8 +796,12 @@ section {
   margin-top: 10px;
   line-height: 1.6;
 }
-.stories .stat-card .stat-label {
-  /* margin-bottom: 20px; */
+/* .stories .stat-card .stat-label {
+  
+  margin-top: 8px;
+  margin-bottom: 20px;
+} */
+.stories .stories-card .stat-label {
   margin-top: 8px;
   margin-bottom: 20px;
 }
