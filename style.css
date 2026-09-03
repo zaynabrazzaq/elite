@@ -2041,3 +2041,7 @@ footer {
   margin-top: 8px;
   margin-bottom: 20px;
 }
+/* Fix for the stretched Instagram button */
+.stories .stories-card .story-insta-btn {
+  align-self: center;
+}
