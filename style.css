@@ -1918,7 +1918,7 @@ footer {
 }
 
 .stories-card.expanded .story-extra-content {
-  max-height: 1500px;
+  max-height: 3000px;
   opacity: 1;
   visibility: visible;
   margin-top: 12px;
@@ -2012,5 +2012,5 @@ footer {
   gap: 24px; /* Space between each stacked story card */
 }
 .story-extra-content .video-frame {
-  margin-bottom: 32px;
+  margin: 0 auto 32px auto;
 }
