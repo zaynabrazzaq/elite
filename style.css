@@ -1918,7 +1918,7 @@ footer {
 }
 
 .stories-card.expanded .story-extra-content {
-  max-height: 300px;
+  max-height: 1200px;
   opacity: 1;
   visibility: visible;
   margin-top: 12px;
@@ -1990,7 +1990,10 @@ footer {
   transition:
     background 0.4s var(--ease),
     transform 0.4s var(--ease); /* Removed height transition */
-  overflow: hidden;
+  /* overflow: hidden; */
+
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
 }
 
 .stories-card:hover {
