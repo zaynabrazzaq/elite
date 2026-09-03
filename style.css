@@ -2012,5 +2012,5 @@ footer {
   gap: 24px; /* Space between each stacked story card */
 }
 .story-extra-content .video-frame {
-  margin: 0 auto 32px auto;
+  margin: 0 auto 32px auto !important;
 }
