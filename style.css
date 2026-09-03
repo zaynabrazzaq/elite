@@ -1013,31 +1013,48 @@ section {
 
 /* Keep the two story cards level with each other, no matter how many
    lines the headline wraps to */
+/* multiple del
+
 .stories .stat-card {
   display: flex;
   flex-direction: column;
-}
+} */
+/*
 .stories .stat-card h3 {
-  /* min-height: 2.8em; /* reserves space for ~2 lines, even if the text only needs 1 */
-  /*display: flex;
-  align-items: center;
-  justify-content: center; */
 
-  height: 3em; /* fixed, not min-height — the box can never grow taller than this */
+
+  height: 3em; 
   line-height: 1.4;
-  overflow: hidden; /* safety net: if a headline ever needed a 3rd line, it gets clipped instead of breaking alignment */
+  overflow: hidden;
   display: flex;
-  /* align-items: center;*/
   align-items: flex-end;
   justify-content: center;
-}
-.stories .stat-card .stat-num {
+}*/
+/* .stories .stat-card .stat-num {
   margin-top: 14px;
 }
 .stories .stat-card .story-meta {
+  margin-top: auto; }
+/* Keep the two story cards level with each other, no matter how many
+   lines the headline wraps to */
+.stories .stories-card {
+  display: flex;
+  flex-direction: column;
+}
+.stories .stories-card h3 {
+  height: 3em;
+  line-height: 1.4;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.stories .stories-card .stat-num {
+  margin-top: 14px;
+}
+.stories .stories-card .story-meta {
   margin-top: auto; /* pushes this row (and the button after it) down to the bottom */
 }
-
 /* .story-avatar {
   width: 44px;
   height: 44px;
