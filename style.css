@@ -1915,6 +1915,7 @@ footer {
   font-size: 0.9rem;
   color: var(--lo);
   line-height: 1.7;
+  margin-top: 24px;
 }
 
 .stories-card.expanded .story-extra-content {
@@ -2013,4 +2014,9 @@ footer {
 }
 .story-extra-content .video-frame {
   margin: 0 auto 32px auto !important;
+}
+.stories .stories-card .stat-label {
+  /* margin-bottom: 20px; */
+  margin-top: 8px;
+  margin-bottom: 20px;
 }
