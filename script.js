@@ -1,4 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
+  /*new test */
+  /* ---------- Success Stories "Show More" Expand/Collapse ---------- */
+  document.querySelectorAll(".story-toggle-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const card = btn.closest(".stories-card");
+      const isExpanded = card.classList.toggle("expanded");
+
+      // Update ARIA attributes for accessibility best practices
+      btn.setAttribute("aria-expanded", isExpanded);
+
+      // Swap text dynamically based on current language
+      const lang = document.documentElement.getAttribute("lang") || "ar";
+      const textSpan = btn.querySelector("span");
+
+      if (isExpanded) {
+        textSpan.setAttribute("data-ar", "عرض أقل");
+        textSpan.setAttribute("data-en", "Show Less");
+        textSpan.textContent = lang === "ar" ? "عرض أقل" : "Show Less";
+      } else {
+        textSpan.setAttribute("data-ar", "عرض المزيد");
+        textSpan.setAttribute("data-en", "Show More");
+        textSpan.textContent = lang === "ar" ? "عرض المزيد" : "Show More";
+      }
+    });
+  });
+  /*end*/
+
   /* ---------- helpers ---------- */
   function on(el, ev, fn) {
     if (el) el.addEventListener(ev, fn);
