@@ -21,6 +21,14 @@ document.addEventListener("DOMContentLoaded", function () {
         textSpan.setAttribute("data-ar", "عرض المزيد");
         textSpan.setAttribute("data-en", "Show More");
         textSpan.textContent = lang === "ar" ? "عرض المزيد" : "Show More";
+
+        // Stop any video inside this card when it collapses —
+        // reloading the iframe's own src halts playback (and audio)
+        // instead of just hiding it while it keeps running unseen.
+        const frame = card.querySelector(".video-frame iframe");
+        if (frame) {
+          frame.src = frame.src;
+        }
       }
     });
   });
