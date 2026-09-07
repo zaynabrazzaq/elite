@@ -1,12 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-  /*new test */
+  /* ---------- helpers ---------- */
+  function on(el, ev, fn) {
+    if (el) el.addEventListener(ev, fn);
+  }
   /* ---------- Success Stories "Show More" Expand/Collapse ---------- */
   document.querySelectorAll(".story-toggle-btn").forEach(function (btn) {
     btn.addEventListener("click", function () {
       const card = btn.closest(".stories-card");
       const isExpanded = card.classList.toggle("expanded");
 
-      // Update ARIA attributes for accessibility best practices
+      // Update ARIA attributes for accessibility
       btn.setAttribute("aria-expanded", isExpanded);
 
       // Swap text dynamically based on current language
@@ -24,20 +27,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Stop any video inside this card when it collapses —
         // reloading the iframe's own src halts playback (and audio)
-        // instead of just hiding it while it keeps running unseen.
         const frame = card.querySelector(".video-frame iframe");
         if (frame) {
           frame.src = frame.src;
         }
+        card.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
   });
-  /*end*/
-
-  /* ---------- helpers ---------- */
-  function on(el, ev, fn) {
-    if (el) el.addEventListener(ev, fn);
-  }
 
   /* ---------- Preloader ----------*/
 
@@ -62,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
   just call finishLoad() after a tiny 150ms pause.
 If it's not loaded yet → wait for the "load" event (page fully ready),
  then call finishLoad() after that same 150ms pause.*/
-
   // safety net in case 'load' is delayed by slow external fonts/CDNs — much shorter than before
   setTimeout(finishLoad, 1000);
 
