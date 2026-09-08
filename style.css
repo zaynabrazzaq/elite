@@ -1850,7 +1850,7 @@ footer {
 }
 
 .stories-card.expanded .story-extra-content {
-  max-height: 3000px;
+  max-height: 3500px;
   opacity: 1;
   visibility: visible;
   margin-top: 12px;
