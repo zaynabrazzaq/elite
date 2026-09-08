@@ -1017,6 +1017,11 @@ section {
   align-items: flex-end;
   justify-content: center;
 }
+.stories .stat-card .story-full-title {
+  height: auto;
+  overflow: visible;
+  display: block;
+}
 .stories .stories-card .stat-num {
   margin-top: 14px;
 }
