@@ -647,6 +647,12 @@ section {
   line-height: 1.85;
   margin-bottom: 36px;
 }
+.newsub {
+  font-size: 1.08rem;
+  color: var(--lo);
+  line-height: 1.85;
+  text-align: center;
+}
 .hero-actions {
   display: flex;
   gap: 16px;
@@ -1515,7 +1521,11 @@ footer {
   color: var(--lo);
   font-size: 0.78rem;
 }
-
+.copy {
+  margin-top: 25px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
 /* ============ BACK TO TOP ============ */
 .to-top {
   position: fixed;
