@@ -125,6 +125,7 @@ section {
   }
 }
 
+/*hj*/
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -312,7 +313,8 @@ section {
 }
 .nav-links a {
   font-size: 0.88rem;
-  color: var(--lo);
+  /* color: var(--lo); */
+  color: var(--purple-2);
   position: relative;
   padding: 4px 0;
   transition: color 0.3s;
@@ -331,9 +333,9 @@ section {
 [dir="ltr"] .nav-links a::after {
   transform-origin: left center;
 }
-.nav-links a:hover {
+/* .nav-links a:hover {
   color: var(--hi);
-}
+} */
 .nav-links a:hover::after {
   transform: scaleX(1);
 }
@@ -1504,7 +1506,7 @@ footer {
     justify-content: center;
   }
 }
-.footer-links {
+/* .footer-links {
   display: flex;
   gap: 22px;
   flex-wrap: wrap;
@@ -1516,7 +1518,7 @@ footer {
 }
 .footer-links a:hover {
   color: var(--purple-2);
-}
+} */
 .footer-copy {
   color: var(--lo);
   font-size: 0.78rem;
@@ -1948,4 +1950,42 @@ footer {
 /* Fix for the stretched Instagram button */
 .stories .stories-card .story-insta-btn {
   align-self: center;
+}
+
+.footer-links {
+  /* display: flex; */
+  align-items: center;
+  /* gap: 30px; */
+}
+.footer-links a {
+  font-size: 0.88rem;
+  /* color: var(--lo); */
+  color: var(--purple-2);
+  position: relative;
+  padding: 4px 0;
+  /* transition: color 0.3s; */
+}
+/* Replace .footer-links with whatever class wraps these text lines */
+.footer-links p {
+  margin: 8px 0; /* Shrinks the gap. Change 8px to whatever looks best to you! */
+}
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  height: 1px;
+  background: var(--purple-2);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.35s var(--ease);
+}
+[dir="ltr"] .footer-links a {
+  transform-origin: left center;
+}
+/* .nav-links a:hover {
+  color: var(--hi);
+} */
+.footer-links a:hover::after {
+  transform: scaleX(1);
 }
