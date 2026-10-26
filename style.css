@@ -1955,7 +1955,7 @@ footer {
 .footer-links {
   /* display: flex; */
   align-items: center;
-  /* gap: 30px; */
+  gap: 30px;
 }
 .footer-links a {
   font-size: 0.88rem;
