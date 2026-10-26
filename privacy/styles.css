@@ -1,0 +1,172 @@
+/* ============ PRIVACY PAGE — reuses style.css tokens ============ */
+
+.privacy {
+  position: relative;
+  padding: 140px 0 90px;
+  overflow: hidden;
+}
+
+/* Same soft purple glow as the hero, toned down */
+.privacy::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  inset-inline-start: 50%;
+  width: 620px;
+  height: 620px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    circle,
+    rgba(176, 38, 255, 0.18),
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.privacy .wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+}
+
+.privacy-back {
+  display: inline-block;
+  margin-bottom: 32px;
+  font-size: 0.85rem;
+  color: var(--lo);
+  transition: color 0.3s;
+}
+.privacy-back:hover {
+  color: var(--purple-2);
+}
+
+.privacy-head {
+  text-align: center;
+  margin-bottom: 44px;
+  align-items: center;
+  text-align: center;
+}
+.privacy-head .eyebrow {
+  justify-content: center;
+}
+.privacy-head h2 {
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+}
+.privacy-date {
+  color: var(--lo);
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+.privacy-card {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 34px 32px;
+  margin-bottom: 22px;
+}
+
+.privacy-card p {
+  color: var(--lo);
+  line-height: 1.9;
+  font-size: 1rem;
+}
+
+.privacy-card strong {
+  color: var(--hi);
+}
+
+.privacy-card a {
+  color: var(--purple-2);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+.privacy-card a:hover {
+  border-color: var(--purple-2);
+}
+
+.p-section {
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+}
+.p-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.p-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: var(--hi);
+}
+
+.p-num {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  font-size: 0.75rem;
+  color: #fff;
+  background: linear-gradient(100deg, var(--purple-1), var(--purple-2));
+  box-shadow: 0 6px 18px -6px rgba(176, 38, 255, 0.7);
+}
+
+/* Contact grid — matches the "01/02/03" value-card look used elsewhere */
+.p-contact {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 6px;
+}
+.p-contact div {
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+.p-contact span {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--purple-2);
+  margin-bottom: 4px;
+}
+.p-contact strong {
+  color: var(--hi);
+  font-weight: 500;
+  font-size: 0.92rem;
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .privacy {
+    padding: 110px 0 70px;
+  }
+  .privacy-card {
+    padding: 24px 20px;
+  }
+  .p-contact {
+    grid-template-columns: 1fr;
+  }
+  .privacy::before {
+    width: 420px;
+    height: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .privacy-card p {
+    font-size: 0.95rem;
+  }
+  .p-section h3 {
+    font-size: 1rem;
+  }
+}
