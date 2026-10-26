@@ -1505,6 +1505,9 @@ footer {
   .footer-links {
     justify-content: center;
   }
+  .footer-link {
+    justify-content: center;
+  }
 }
 /* .footer-links {
   display: flex;
@@ -1764,6 +1767,9 @@ footer {
     gap: 20px;
   }
   .footer-links {
+    justify-content: center;
+  }
+  .footer-link {
     justify-content: center;
   }
 
