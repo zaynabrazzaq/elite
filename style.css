@@ -1953,7 +1953,7 @@ footer {
 }
 
 .footer-links {
-  /* display: flex; */
+  display: flex;
   align-items: center;
   gap: 30px;
 }
@@ -1987,5 +1987,43 @@ footer {
   color: var(--hi);
 } */
 .footer-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.footer-link {
+  /* display: flex; */
+  align-items: center;
+  /* gap: 30px; */
+}
+.footer-link a {
+  font-size: 0.88rem;
+  /* color: var(--lo); */
+  color: var(--purple-2);
+  position: relative;
+  padding: 4px 0;
+  /* transition: color 0.3s; */
+}
+/* Replace .footer-links with whatever class wraps these text lines */
+.footer-link p {
+  margin: 8px 0; /* Shrinks the gap. Change 8px to whatever looks best to you! */
+}
+.footer-link a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  height: 1px;
+  background: var(--purple-2);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.35s var(--ease);
+}
+[dir="ltr"] .footer-link a {
+  transform-origin: left center;
+}
+/* .nav-links a:hover {
+  color: var(--hi);
+} */
+.footer-link a:hover::after {
   transform: scaleX(1);
 }
